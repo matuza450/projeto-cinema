@@ -315,3 +315,273 @@ footer .container {
     font-size: 0.9rem;
     color: var(--grey-color);
 }
+
+/* --- ... (Todo o seu CSS existente de :root até .copyright) ... --- */
+/* Copie e cole seu CSS original até a linha 303 (.copyright) aqui */
+
+/* ======================================== */
+/* CSS FALTANDO (Adicionado Agora)      */
+/* ======================================== */
+
+/* --- ESTILOS DO MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--secondary-dark);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    width: 90%;
+    max-width: 800px;
+    
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -40%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-overlay.active,
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal.active {
+    transform: translate(-50%, -50%);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+.modal-content {
+    display: flex;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-poster {
+    width: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.modal-body {
+    padding: 2rem;
+    flex: 1;
+}
+
+.modal-body h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.modal-genres {
+    color: var(--grey-color);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.modal-rating {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.session-times {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.time {
+    background-color: var(--dark-color);
+    border: 1px solid var(--grey-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.time:hover,
+.time:focus { /* Adicionado :focus para acessibilidade */
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.modal-buy-btn {
+    font-size: 1.2rem;
+}
+
+/* --- ESTILOS DA ANIMAÇÃO SCROLL --- */
+
+.movie-card {
+    /* ... (mantenha todos os estilos que você já tinha) ... */
+    
+    /* Adiciona opacidade e transform à transição existente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+    
+    /* Estado inicial (antes de aparecer) */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Classe 'visible' que o JavaScript vai adicionar */
+.movie-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ======================================== */
+/* CSS DE MODERNIZAÇÃO (Menu Hambúrguer)  */
+/* ======================================== */
+
+/* --- Estilo do Botão Hambúrguer --- */
+.nav-toggle {
+    display: none; /* Escondido por padrão em telas grandes */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1100;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background: var(--light-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--light-color);
+    border-radius: 3px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+.hamburger::before {
+    top: -8px;
+}
+.hamburger::after {
+    bottom: -8px;
+}
+
+/* --- Animação do "X" do Hambúrguer --- */
+.nav-open .hamburger {
+    background: transparent; /* Miolo do X some */
+}
+.nav-open .hamburger::before {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.nav-open .hamburger::after {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* --- Media Query para Telas Pequenas --- */
+@media (max-width: 850px) {
+    /* Mostra o botão hambúrguer */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Esconde o menu principal */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%; /* Menu ocupa 70% da tela */
+        height: 100vh;
+        background: var(--secondary-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Começa fora da tela */
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1050;
+    }
+
+    /* Classe 'active' que o JS vai adicionar */
+    .main-nav.active {
+        transform: translateX(0); /* Puxa o menu para dentro da tela */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .main-nav li {
+        margin-left: 0;
+    }
+
+    .main-nav a {
+        font-size: 1.5rem;
+    }
+
+    /* Esconde o seletor de cidade e login no desktop */
+    .header-right {
+        display: none; 
+    }
+}
+
+/* Responsividade do Modal para telas pequenas */
+@media (max-width: 700px) {
+    .modal-content {
+        flex-direction: column;
+    }
+    .modal-poster {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 10px 10px 0 0;
+    }
+    .modal-body {
+        padding: 1.5rem;
+    }
+    .modal-body h2 {
+        font-size: 2rem;
+    }
+}

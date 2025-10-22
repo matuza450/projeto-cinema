@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <h1 class="logo">Cinemark</h1>
-            <nav>
+            <nav class="main-nav" id="main-nav">
                 <ul>
                     <li><a href="#" class="active">Em Cartaz</a></li>
                     <li><a href="#">Em Breve</a></li>
@@ -28,6 +28,9 @@
                 </select>
                 <a href="#" class="btn-login">Login</a>
             </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
 
@@ -44,7 +47,7 @@
                 <a href="#" class="btn-primary">Ver Sessões</a>
             </div>
         </section>
-        </main>
+
         <section class="movie-listings">
             <div class="container">
                 <h2>Em Cartaz</h2>
@@ -62,7 +65,7 @@
                     <article class="movie-card">
                         <img src="/imagens/madadascar.jpg" alt="Madagascar">
                         <div class="movie-card-content">
-                            <h3>Madagascar </h3>
+                            <h3>Madagascar</h3>
                             <p class="genres">Comédia, Infantil</p>
                             <p class="rating">Livre</p>
                             <a href="#" class="btn-secondary">Comprar Ingressos</a>
@@ -89,17 +92,17 @@
                         </div>
                     </article>
 
-                    <acticle class="movie-card">
-                        <img src="/imagens/dracula.jpg" alt="It - A Coisa">
+                    <article class="movie-card">
+                        <img src="/imagens/dracula.jpg" alt="Dracula - Bram Stoker">
                         <div class="movie-card-content">
                             <h3>Dracula - Bram Stoker</h3>
                             <p class="genres">Terror, Suspense</p>
                             <p class="rating">18 anos</p>
                             <a href="#" class="btn-secondary">Comprar Ingresso</a>
                         </div>
-                    </acticle>
+                    </article>
 
-                    <acticle class="movie-card">
+                    <article class="movie-card">
                         <img src="/imagens/invocacao.jpg" alt="Invocação do Mal">
                         <div class="movie-card-content">
                             <h3>Invocação do Mal</h3>
@@ -107,9 +110,9 @@
                             <p class="rating">18 anos</p>
                             <a href="#" class="btn-secondary">Comprar Ingresso</a>
                         </div>
-                    </acticle>
+                    </article>
 
-                    <acticle class="movie-card">
+                    <article class="movie-card">
                         <img src="/imagens/festadasalsicha.jpg" alt="Festa da Salsicha">
                         <div class="movie-card-content">
                             <h3>Festa da Salsicha</h3>
@@ -117,9 +120,9 @@
                             <p class="rating">18 anos</p>
                             <a href="#" class="btn-secondary">Comprar Ingresso</a>
                         </div>
-                    </acticle>
+                    </article>
 
-                    <acticle class="movie-card">
+                    <article class="movie-card">
                         <img src="/imagens/the-dark-knight.jpg" alt="O Cavaleiro das Trevas">
                         <div class="movie-card-content">
                             <h3>Cavaleiro das Trevas</h3>
@@ -127,10 +130,7 @@
                             <p class="rating">18 anos</p>
                             <a href="#" class="btn-secondary">Comprar Ingresso</a>
                         </div>
-                    </acticle>
-
-
-
+                    </article>
                 </div>
                 
                 <h2 class="section-title">Sherk 5 - ESTREIA</h2>
@@ -147,54 +147,69 @@
                     <article class="movie-card">
                         <img src="/imagens/jumanji-4.jpeg" alt="Jumanji 4">
                         <div class="movie-card-content">
-                            <h3>Título do Filme 6</h3>
-                            <p class="genres">Drama</p>
+                            <h3>Jumanji: Próximo Nível</h3> 
+                            <p class="genres">Aventura, Comédia</p>
                             <a href="#" class="btn-tertiary">Ver Detalhes</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-    </main>
-
-</section>
-</main>
-
-<div class="modal-overlay" id="modal-overlay"></div>
-<div class="modal" id="movie-modal">
-    <button class="modal-close" id="modal-close">&times;</button>
-    <div class="modal-content">
-        <img src="" alt="Pôster do Filme" id="modal-poster" class="modal-poster">
-        <div class="modal-body">
-            <h2 id="modal-title">Título do Filme</h2>
-            <p class="modal-genres" id="modal-genres">Gêneros aqui</p>
-            <p class="modal-rating" id="modal-rating">Classificação aqui</p>
-            
-            <p>Aqui você colocaria informações sobre o filme, sinopse, elenco, etc.</p>
-            
-            <h4>Horários Disponíveis (Exemplo)</h4>
-            <div class="session-times">
-                <span class="time">14:30</span>
-                <span class="time">17:00</span>
-                <span class="time">19:40</span>
-                <span class="time">22:15</span>
+    </main> <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="movie-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" aria-label="Fechar modal">&times;</button>
+        <div class="modal-content">
+            <img src="" alt="Pôster do Filme" id="modal-poster" class="modal-poster">
+            <div class="modal-body">
+                <h2 id="modal-title">Título do Filme</h2>
+                <p class="modal-genres" id="modal-genres">Gêneros aqui</p>
+                <p class="modal-rating" id="modal-rating">Classificação aqui</p>
+                
+                <p>Aqui você colocaria informações sobre o filme, sinopse, elenco, etc.</p>
+                
+                <h4>Horários Disponíveis (Exemplo)</h4>
+                <div class="session-times">
+                    <span class="time" role="button" tabindex="0">14:30</span>
+                    <span class="time" role="button" tabindex="0">17:00</span>
+                    <span class="time" role="button" tabindex="0">19:40</span>
+                    <span class="time" role="button" tabindex="0">22:15</span>
+                </div>
+                <a href="#" class="btn-primary modal-buy-btn">Garantir Ingresso</a>
             </div>
-            <a href="#" class="btn-primary modal-buy-btn">Garantir Ingresso</a>
         </div>
     </div>
-</div>
-<footer>
-    <div class="container">
-</div>
-    <div class="copyright">
-        <p>&copy; 2025 CineExemplo. Todos os direitos reservados.</p>
-    </div>
-</footer>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Trabalhe conosco</a></li>
+                    <li><a href="#">Imprensa</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Siga-nos</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Cinemark. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-<script src="script.js"></script>
-
-</body>
-</html>
+    <script src="script.js"></script>
 
 </body>
 </html>
