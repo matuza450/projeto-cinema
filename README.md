@@ -1,4 +1,4 @@
-# Projeto CineMark (Conceitual) - Web Design
+# Projeto Cinemark (Conceitual) - Web Design
 
 ![Badge](https://img.shields.io/badge/Status-Concluído-brightgreen)
 ![Badge](https://img.shields.io/badge/Tecnologia-HTML5%20%7C%20CSS3-blue)
